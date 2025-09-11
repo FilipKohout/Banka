@@ -5,17 +5,21 @@ import org.example.customers.Customer;
 import java.util.UUID;
 
 public class BaseBankAccount {
-    protected String uuid;
-    protected String bankAccountNumber;
-    protected Customer customer;
+    private String uuid;
+    private String bankAccountNumber;
+    private Customer customer;
 
     protected double balance;
 
-    protected BaseBankAccount(Customer customer) {
+    protected BaseBankAccount(Customer customer, double balance) {
         this.uuid = UUID.randomUUID().toString();
-        this.bankAccountNumber = bankAccountNumber;
+        this.bankAccountNumber = "";
         this.customer = customer;
         this.balance = 0;
+    }
+
+    protected BaseBankAccount(Customer customer) {
+        this(customer, 0);
     }
 
     public void deposit(double amount) {
