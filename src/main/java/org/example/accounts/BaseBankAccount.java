@@ -15,7 +15,7 @@ public class BaseBankAccount {
         this.uuid = UUID.randomUUID().toString();
         this.bankAccountNumber = "";
         this.customer = customer;
-        this.balance = 0;
+        this.balance = balance;
     }
 
     protected BaseBankAccount(Customer customer) {
