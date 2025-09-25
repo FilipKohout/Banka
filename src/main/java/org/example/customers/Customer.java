@@ -12,16 +12,4 @@ public class Customer {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
 }
