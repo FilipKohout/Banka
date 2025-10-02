@@ -6,14 +6,14 @@ public class CustomerXMLSerializer implements Serialization<Customer> {
     @Override
     public String serialize(Customer customer) {
         return String.format(
-                "<customer>" +
-                    "<uuid>%s</uuid>" +
-                    "<firstName>%s</firstName>" +
-                    "<lastName>%s</lastName>" +
-                "</customer>",
-                customer.getUuid(),
-                customer.getFirstName(),
-                customer.getLastName()
+            "<customer>" +
+                "<uuid>%s</uuid>" +
+                "<firstName>%s</firstName>" +
+                "<lastName>%s</lastName>" +
+            "</customer>",
+            customer.getUuid(),
+            customer.getFirstName(),
+            customer.getLastName()
         );
     }
 

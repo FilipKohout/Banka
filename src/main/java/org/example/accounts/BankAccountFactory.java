@@ -1,8 +1,10 @@
 package org.example.accounts;
 
+import org.example.accounts.classes.BaseBankAccount;
 import org.example.accounts.classes.SavingsBankAccount;
 import org.example.accounts.classes.StandardBankAccount;
 import org.example.accounts.classes.StudentBankAccount;
+import org.example.accounts.serialization.AccountJSONSerializer;
 import org.example.customers.Customer;
 import org.example.utils.Generator;
 
@@ -30,5 +32,15 @@ public final class BankAccountFactory {
                 Generator.generateUniqueAccountNumber(),
                 schoolName
         );
+    }
+
+    public static <T extends BaseBankAccount> String serializeJSONBankAccount(T account) {
+        AccountJSONSerializer<T> serializer = new AccountJSONSerializer<T>((Class<T>) account.getClass());
+        return serializer.serialize(account);
+    }
+
+    public static <T extends BaseBankAccount> T deserializeJSONBankAccount(String data, Class<T> type) {
+        AccountJSONSerializer<T> serializer = new AccountJSONSerializer<T>(type);
+        return serializer.deserialize(data);
     }
 }

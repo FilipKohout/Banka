@@ -1,32 +1,19 @@
 package org.example.customers;
 
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
 import org.example.utils.Serialization;
 
 public class CustomerJSONSerializer implements Serialization<Customer> {
+    private final Gson gson = new Gson();
+
     @Override
     public String serialize(Customer customer) {
-        return String.format(
-                "{" +
-                    "\"uuid\": \"%s\", " +
-                    "\"firstName\": \"%s\", " +
-                    "\"lastName\": \"%s\" " +
-                "}",
-                customer.getUuid(),
-                customer.getFirstName(),
-                customer.getFirstName()
-        );
+        return gson.toJson(customer);
     }
 
     @Override
     public Customer deserialize(String data) {
-        data = data.trim().replaceAll("[{}\"]", "");
-        String[] parts = data.split(",");
-
-        String uuid = parts[0].split(":")[1].trim();
-        String firstName = parts[1].split(":")[1].trim();
-        String lastName = parts[2].split(":")[1].trim();
-
-        Customer customer = new Customer(uuid, firstName, lastName);
-        return customer;
+        return gson.fromJson(data, Customer.class);
     }
 }
