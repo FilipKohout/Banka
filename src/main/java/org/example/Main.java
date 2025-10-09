@@ -2,7 +2,7 @@ package org.example;
 
 import org.example.accounts.BankAccountFactory;
 import org.example.accounts.classes.BaseBankAccount;
-import org.example.accounts.transactions.TransactionHandler;
+import org.example.accounts.services.TransactionHandler;
 import org.example.customers.Customer;
 import org.example.customers.CustomerFactory;
 

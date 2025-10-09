@@ -6,7 +6,6 @@ import org.example.accounts.classes.StandardBankAccount;
 import org.example.accounts.classes.StudentBankAccount;
 import org.example.accounts.serialization.AccountJSONSerializer;
 import org.example.customers.Customer;
-import org.example.utils.Generator;
 
 public final class BankAccountFactory {
     public static StandardBankAccount createStandardAccount(Customer customer) {

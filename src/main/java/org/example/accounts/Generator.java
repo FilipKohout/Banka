@@ -1,4 +1,6 @@
-package org.example.utils;
+package org.example.accounts;
+
+import org.example.utils.Consts;
 
 import java.util.Random;
 
