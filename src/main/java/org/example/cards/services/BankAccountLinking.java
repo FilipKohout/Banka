@@ -6,5 +6,6 @@ import org.example.cards.classes.PaymentCard;
 public class BankAccountLinking {
     public void LinkBankAccount(BaseBankAccount bankAccount, PaymentCard paymentCard) {
         bankAccount.paymentCards.add(paymentCard);
+        paymentCard.setBankAccount(bankAccount);
     }
 }

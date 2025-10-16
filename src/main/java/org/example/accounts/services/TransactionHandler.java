@@ -1,16 +1,20 @@
 package org.example.accounts.services;
 
 import org.example.accounts.classes.BaseBankAccount;
+import org.example.transactions.TransactionFactory;
+import org.example.transactions.TransactionType;
 
-public final class TransactionHandler {
-    public static void deposit(BaseBankAccount account, double amount) {
-        Validation.validateTransaction(amount);
+public class TransactionHandler {
+    private final TransactionValidation validation = new TransactionValidation();
+
+    public void deposit(BaseBankAccount account, double amount) {
+        validation.validateTransaction(amount);
 
         account.balance += amount;
     }
 
-    public static void withdraw(BaseBankAccount account, double amount) {
-        Validation.validateTransaction(amount);
+    public void withdraw(BaseBankAccount account, double amount) {
+        validation.validateTransaction(amount);
 
         double newBalance = account.balance - amount;
 

@@ -1,6 +1,6 @@
 package org.example.cards.services;
 
-public class Expiration {
+public class CardExpiration {
     public String getCardExpirationMonth() {
         return "";
     }

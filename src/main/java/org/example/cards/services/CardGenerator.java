@@ -4,7 +4,7 @@ import org.example.utils.Consts;
 
 import java.util.Random;
 
-public class Generator {
+public class CardGenerator {
     private final Random random = new Random();
 
     private String generateCardNumber() {

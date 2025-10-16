@@ -1,11 +1,14 @@
 package org.example.cards.classes;
 
+import org.example.accounts.classes.BaseBankAccount;
+
 public class PaymentCard {
     private String cardNumber;
     private String ccvNumber;
     private String expirationMonth;
     private String expirationYear;
     private String owner;
+    private BaseBankAccount BankAccount;
 
     public PaymentCard(String cardNumber, String ccvNumber, String expirationMonth, String expirationYear, String owner) {
         this.cardNumber = cardNumber;
@@ -19,19 +22,11 @@ public class PaymentCard {
         return cardNumber;
     }
 
-    public String getCcvNumber() {
-        return ccvNumber;
+    public void setBankAccount(BaseBankAccount bankAccount) {
+        BankAccount = bankAccount;
     }
 
-    public String getExpirationMonth() {
-        return expirationMonth;
-    }
-
-    public String getExpirationYear() {
-        return expirationYear;
-    }
-
-    public String getOwner() {
-        return owner;
+    public BaseBankAccount getBankAccount() {
+        return BankAccount;
     }
 }

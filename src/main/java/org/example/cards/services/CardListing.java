@@ -1,21 +1,21 @@
 package org.example.cards.services;
 
-import org.example.cards.PaymentCardList;
+import org.example.cards.CardList;
 import org.example.cards.classes.PaymentCard;
 
 import java.util.Objects;
 
-public class Listing {
+public class CardListing {
     public void add(PaymentCard card) {
-        PaymentCardList.cards.add(card);
+        CardList.cards.add(card);
     }
 
     public void remove(PaymentCard card) {
-        PaymentCardList.cards.remove(card);
+        CardList.cards.remove(card);
     }
 
-    public static PaymentCard find(String cardNumber) {
-        for (PaymentCard card : PaymentCardList.cards) {
+    public PaymentCard find(String cardNumber) {
+        for (PaymentCard card : CardList.cards) {
             if (Objects.equals(card.getCardNumber(), cardNumber)) {
                 return card;
             }

@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import org.example.cards.classes.PaymentCard;
 import org.example.customers.Customer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BaseBankAccount {
@@ -18,7 +19,7 @@ public class BaseBankAccount {
 
     private Customer customer;
 
-    public List<PaymentCard> paymentCards;
+    public ArrayList<PaymentCard> paymentCards;
     public double balance;
 
     protected BaseBankAccount(Customer customer, String uuid, String accountNumber, double balance) {
@@ -26,5 +27,10 @@ public class BaseBankAccount {
         this.bankAccountNumber = accountNumber;
         this.customer = customer;
         this.balance = balance;
+        this.paymentCards = new ArrayList<PaymentCard>();
+    }
+
+    public String getAccountNumber() {
+        return bankAccountNumber;
     }
 }

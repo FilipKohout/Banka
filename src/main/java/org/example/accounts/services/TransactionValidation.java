@@ -2,7 +2,7 @@ package org.example.accounts.services;
 
 import org.example.utils.Consts;
 
-public final class Validation {
+public class TransactionValidation {
     public void validateTransaction(double amount) {
         if (amount <= 0)
             throw new IllegalArgumentException("Negative amount");
