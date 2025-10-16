@@ -6,11 +6,11 @@ import org.example.cards.classes.PaymentCard;
 import java.util.Objects;
 
 public class Listing {
-    public static void add(PaymentCard card) {
+    public void add(PaymentCard card) {
         PaymentCardList.cards.add(card);
     }
 
-    public static void remove(PaymentCard card) {
+    public void remove(PaymentCard card) {
         PaymentCardList.cards.remove(card);
     }
 

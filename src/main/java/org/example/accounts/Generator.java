@@ -5,9 +5,9 @@ import org.example.utils.Consts;
 import java.util.Random;
 
 public final class Generator {
-    private static final Random random = new Random();
+    private final Random random = new Random();
 
-    private static String generateAccountNumber() {
+    private String generateAccountNumber() {
         String number = "";
 
         for (int i = 0; i < Consts.ACCOUNT_NUMBER_LENGTH; i++)
@@ -16,7 +16,7 @@ public final class Generator {
         return number + "/" + Consts.ACCOUNT_NUMBER_BANK_CODE;
     }
 
-    public static String generateUniqueAccountNumber() {
+    public String generateUniqueAccountNumber() {
         String accountNumber;
 
         do {

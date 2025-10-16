@@ -2,8 +2,8 @@ package org.example.cards;
 
 import org.example.cards.classes.PaymentCard;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class PaymentCardList {
-    public static List<PaymentCard> cards = new List<PaymentCard>();
+    public final static ArrayList<PaymentCard> cards = new ArrayList<PaymentCard>();
 }

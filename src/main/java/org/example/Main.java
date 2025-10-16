@@ -2,25 +2,29 @@ package org.example;
 
 import org.example.accounts.BankAccountFactory;
 import org.example.accounts.classes.BaseBankAccount;
-import org.example.accounts.services.TransactionHandler;
+import org.example.accounts.services.Transactions;
 import org.example.customers.Customer;
 import org.example.customers.CustomerFactory;
 
 public class Main {
     public static void main(String[] args) {
-        Customer customer = CustomerFactory.createCustomer("John", "Doe");
+        CustomerFactory customerFactory = new CustomerFactory();
+        Transactions transactions = new Transactions();
+        BankAccountFactory bankAccountFactory = new BankAccountFactory();
 
-        BaseBankAccount account = BankAccountFactory.createStandardAccount(customer);
-        TransactionHandler.deposit(account, 500);
-        TransactionHandler.withdraw(account, 200);
+        Customer customer = customerFactory.createCustomer("John", "Doe");
+
+        BaseBankAccount account = bankAccountFactory.createStandardAccount(customer);
+        transactions.deposit(account, 500);
+        transactions.withdraw(account, 200);
         System.out.println("Final balance: " + account.balance);
 
-        String serialized = CustomerFactory.serializeJSONCustomer(customer);
+        String serialized = customerFactory.serializeJSONCustomer(customer);
         System.out.println(serialized);
-        System.out.println(CustomerFactory.deserializeJSONCustomer(serialized));
+        System.out.println(customerFactory.deserializeJSONCustomer(serialized));
 
-        String xmlSerialized = CustomerFactory.serializeXMLCustomer(customer);
+        String xmlSerialized = customerFactory.serializeXMLCustomer(customer);
         System.out.println(xmlSerialized);
-        System.out.println(CustomerFactory.deserializeXMLCustomer(xmlSerialized));
+        System.out.println(customerFactory.deserializeXMLCustomer(xmlSerialized));
     }
 }

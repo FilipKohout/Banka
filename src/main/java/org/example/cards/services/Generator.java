@@ -4,10 +4,10 @@ import org.example.utils.Consts;
 
 import java.util.Random;
 
-public final class Generator {
-    private static final Random random = new Random();
+public class Generator {
+    private final Random random = new Random();
 
-    private static String generateCardNumber() {
+    private String generateCardNumber() {
         String number = "";
 
         for (int i = 0; i < Consts.CARD_NUMBER_LENGTH; i++)
@@ -16,7 +16,7 @@ public final class Generator {
         return number + Consts.CARD_NUMBER_BANK_CODE;
     }
 
-    public static String generateUniqueCardNumber() {
+    public String generateUniqueCardNumber() {
         String cardNumber;
 
         do {
@@ -27,7 +27,7 @@ public final class Generator {
         return cardNumber;
     }
 
-    public static String generateCCVNumber() {
+    public String generateCCVNumber() {
         String number = "";
 
         for (int i = 0; i < 3; i++)
