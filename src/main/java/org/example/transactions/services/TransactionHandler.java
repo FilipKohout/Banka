@@ -1,11 +1,13 @@
-package org.example.accounts.services;
+package org.example.transactions.services;
 
 import org.example.accounts.classes.BaseBankAccount;
-import org.example.transactions.TransactionFactory;
-import org.example.transactions.TransactionType;
 
 public class TransactionHandler {
-    private final TransactionValidation validation = new TransactionValidation();
+    public TransactionValidation validation;
+
+    public TransactionHandler(TransactionValidation validation) {
+        this.validation = validation;
+    }
 
     public void deposit(BaseBankAccount account, double amount) {
         validation.validateTransaction(amount);

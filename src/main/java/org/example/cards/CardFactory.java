@@ -6,9 +6,15 @@ import org.example.cards.services.CardGenerator;
 import org.example.cards.services.CardListing;
 
 public class CardFactory {
-    private final CardGenerator generator = new CardGenerator();
-    private final CardExpiration expiration = new CardExpiration();
-    private final CardListing listing = new CardListing();
+    public CardGenerator generator;
+    public CardExpiration expiration;
+    public CardListing listing;
+
+    public CardFactory(CardGenerator generator, CardExpiration expiration, CardListing listing) {
+        this.generator = generator;
+        this.expiration = expiration;
+        this.listing = listing;
+    }
 
     public PaymentCard createPaymentCard(String owner) {
         String cvv = generator.generateCCVNumber();

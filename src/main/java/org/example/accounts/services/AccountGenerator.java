@@ -1,10 +1,10 @@
-package org.example.accounts;
+package org.example.accounts.services;
 
 import org.example.utils.Consts;
 
 import java.util.Random;
 
-public final class Generator {
+public final class AccountGenerator {
     private final Random random = new Random();
 
     private String generateAccountNumber() {

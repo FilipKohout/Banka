@@ -1,4 +1,4 @@
-package org.example.accounts.services;
+package org.example.transactions.services;
 
 import org.example.utils.Consts;
 

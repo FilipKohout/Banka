@@ -4,7 +4,12 @@ import org.example.logs.classes.Log;
 import org.example.logs.services.LogListing;
 
 public class LogFactory {
-    private final LogListing listing = new LogListing();
+    public  LogListing listing;
+
+    public LogFactory(LogListing listing) {
+        this.listing = listing;
+    }
+
     public Log createLog(LogType type, String message) {
         Log log = new Log(
             java.util.UUID.randomUUID().toString(),

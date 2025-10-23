@@ -5,10 +5,15 @@ import org.example.accounts.classes.SavingsBankAccount;
 import org.example.accounts.classes.StandardBankAccount;
 import org.example.accounts.classes.StudentBankAccount;
 import org.example.accounts.serialization.AccountJSONSerializer;
+import org.example.accounts.services.AccountGenerator;
 import org.example.customers.Customer;
 
 public final class BankAccountFactory {
-    private final Generator generator = new Generator();
+    private AccountGenerator generator;
+
+    public BankAccountFactory(AccountGenerator generator) {
+        this.generator = generator;
+    }
 
     public StandardBankAccount createStandardAccount(Customer customer) {
         return new StandardBankAccount(

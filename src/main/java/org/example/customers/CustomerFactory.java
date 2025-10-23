@@ -3,8 +3,13 @@ package org.example.customers;
 import java.util.UUID;
 
 public class CustomerFactory {
-    private final CustomerJSONSerializer serializerJSON = new CustomerJSONSerializer();
-    private final CustomerXMLSerializer serializerXML = new CustomerXMLSerializer();
+    public CustomerJSONSerializer serializerJSON;
+    public CustomerXMLSerializer serializerXML;
+
+    public CustomerFactory(CustomerJSONSerializer serializerJSON, CustomerXMLSerializer serializerXML) {
+        this.serializerJSON = serializerJSON;
+        this.serializerXML = serializerXML;
+    }
 
     public Customer createCustomer(String firstName, String lastName) {
         String uuid = UUID.randomUUID().toString();

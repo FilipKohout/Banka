@@ -8,8 +8,13 @@ import org.example.transactions.classes.Transaction;
 import org.example.transactions.services.TransactionListing;
 
 public class TransactionFactory {
-    private final LogFactory logFactory = new LogFactory();
-    private final TransactionListing listing = new TransactionListing();
+    public LogFactory logFactory;
+    public TransactionListing listing;
+
+    public TransactionFactory(LogFactory logFactory, TransactionListing listing) {
+        this.logFactory = logFactory;
+        this.listing = listing;
+    }
 
     public Transaction createTransaction(double amount, TransactionType type, BaseBankAccount bankAccount, PaymentCard paymentCard) {
         logFactory.createLog(
