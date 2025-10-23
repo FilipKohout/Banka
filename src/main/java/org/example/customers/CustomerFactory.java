@@ -1,15 +1,14 @@
 package org.example.customers;
 
+import com.google.inject.Inject;
+
 import java.util.UUID;
 
 public class CustomerFactory {
+    @Inject
     public CustomerJSONSerializer serializerJSON;
+    @Inject
     public CustomerXMLSerializer serializerXML;
-
-    public CustomerFactory(CustomerJSONSerializer serializerJSON, CustomerXMLSerializer serializerXML) {
-        this.serializerJSON = serializerJSON;
-        this.serializerXML = serializerXML;
-    }
 
     public Customer createCustomer(String firstName, String lastName) {
         String uuid = UUID.randomUUID().toString();

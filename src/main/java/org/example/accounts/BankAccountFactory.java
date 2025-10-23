@@ -1,5 +1,6 @@
 package org.example.accounts;
 
+import com.google.inject.Inject;
 import org.example.accounts.classes.BaseBankAccount;
 import org.example.accounts.classes.SavingsBankAccount;
 import org.example.accounts.classes.StandardBankAccount;
@@ -9,11 +10,8 @@ import org.example.accounts.services.AccountGenerator;
 import org.example.customers.Customer;
 
 public final class BankAccountFactory {
+    @Inject
     private AccountGenerator generator;
-
-    public BankAccountFactory(AccountGenerator generator) {
-        this.generator = generator;
-    }
 
     public StandardBankAccount createStandardAccount(Customer customer) {
         return new StandardBankAccount(

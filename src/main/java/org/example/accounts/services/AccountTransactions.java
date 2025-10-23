@@ -1,18 +1,16 @@
 package org.example.accounts.services;
 
+import com.google.inject.Inject;
 import org.example.accounts.classes.BaseBankAccount;
 import org.example.transactions.TransactionFactory;
 import org.example.transactions.TransactionType;
 import org.example.transactions.services.TransactionHandler;
 
 public class AccountTransactions {
+    @Inject
     private TransactionFactory transactionFactory;
+    @Inject
     private TransactionHandler transactionHandler;
-
-    public AccountTransactions(TransactionFactory transactionFactory, TransactionHandler transactionHandler) {
-        this.transactionFactory = transactionFactory;
-        this.transactionHandler = transactionHandler;
-    }
 
     public void deposit(BaseBankAccount account, double amount) {
         transactionFactory.createTransaction(amount, TransactionType.DEPOSIT, account, null);

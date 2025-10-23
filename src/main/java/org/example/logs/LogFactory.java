@@ -1,14 +1,12 @@
 package org.example.logs;
 
+import com.google.inject.Inject;
 import org.example.logs.classes.Log;
 import org.example.logs.services.LogListing;
 
 public class LogFactory {
-    public  LogListing listing;
-
-    public LogFactory(LogListing listing) {
-        this.listing = listing;
-    }
+    @Inject
+    public LogListing listing;
 
     public Log createLog(LogType type, String message) {
         Log log = new Log(
