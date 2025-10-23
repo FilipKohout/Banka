@@ -47,10 +47,10 @@ public class Container {
         this.customerJSONSerializer = new CustomerJSONSerializer();
         this.customerFactory = new CustomerFactory(this.customerJSONSerializer, this.customerXMLSerializer);
 
-        this.transactionFactory = new TransactionFactory(this.logFactory, this.transactionListing);
         this.transactionValidation = new TransactionValidation();
         this.transactionHandler = new TransactionHandler(this.transactionValidation);
         this.transactionListing = new TransactionListing();
+        this.transactionFactory = new TransactionFactory(this.logFactory, this.transactionListing);
 
         this.cardGenerator = new CardGenerator();
         this.cardExpiration = new CardExpiration();
