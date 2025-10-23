@@ -1,9 +1,11 @@
 package org.example.logs;
 
+import com.google.inject.Singleton;
 import org.example.logs.classes.Log;
 
 import java.util.ArrayList;
 
+@Singleton
 public class LogList {
-    public final static ArrayList<Log> logs = new ArrayList<Log>();
+    public ArrayList<Log> logs = new ArrayList<Log>();
 }
