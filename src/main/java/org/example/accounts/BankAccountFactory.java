@@ -7,35 +7,48 @@ import org.example.accounts.classes.StandardBankAccount;
 import org.example.accounts.classes.StudentBankAccount;
 import org.example.accounts.serialization.AccountJSONSerializer;
 import org.example.accounts.services.AccountGenerator;
+import org.example.accounts.services.AccountListing;
 import org.example.customers.Customer;
 
 public final class BankAccountFactory {
     @Inject
     private AccountGenerator generator;
 
+    @Inject
+    private AccountListing listing;
+
     public StandardBankAccount createStandardAccount(Customer customer) {
-        return new StandardBankAccount(
+        StandardBankAccount account = new StandardBankAccount(
                 customer,
                 java.util.UUID.randomUUID().toString(),
                 generator.generateUniqueAccountNumber()
         );
+
+        listing.add(account);
+        return account;
     }
 
     public SavingsBankAccount createSavingsAccount(Customer customer, float interestRate) {
-        return new SavingsBankAccount(
+        SavingsBankAccount account = new SavingsBankAccount(
                 customer,
                 java.util.UUID.randomUUID().toString(),
                 generator.generateUniqueAccountNumber(),
                 interestRate
         );
+
+        listing.add(account);
+        return account;
     }
     public StudentBankAccount createStudentAccount(Customer customer, String schoolName) {
-        return new StudentBankAccount(
+        StudentBankAccount account = new StudentBankAccount(
                 customer,
                 java.util.UUID.randomUUID().toString(),
                 generator.generateUniqueAccountNumber(),
                 schoolName
         );
+
+        listing.add(account);
+        return account;
     }
 
     public <T extends BaseBankAccount> String serializeJSONBankAccount(T account) {

@@ -10,4 +10,7 @@ public final class Consts {
 
     public static final int CARD_NUMBER_LENGTH = 9;
     public static final String CARD_NUMBER_BANK_CODE = "2056";
+
+    public static final long INTEREST_CALCULATION_INTERVAL = 1000 * 60 * 1;
+    public static final long SAVINGS_ACCOUNT_INTEREST_INTERVAL = 1000 * 60 * 5;
 }

@@ -21,4 +21,9 @@ public class AccountTransactions {
         transactionFactory.createTransaction(amount, TransactionType.WITHDRAWAL, account, null);
         transactionHandler.withdraw(account, amount);
     }
+
+    public void applyInterest(BaseBankAccount account, double amount) {
+        transactionFactory.createTransaction(amount, TransactionType.INTEREST, account, null);
+        transactionHandler.deposit(account, amount);
+    }
 }

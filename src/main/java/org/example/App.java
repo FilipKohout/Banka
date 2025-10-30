@@ -3,7 +3,9 @@ package org.example;
 import com.google.inject.Inject;
 import org.example.accounts.BankAccountFactory;
 import org.example.accounts.classes.BaseBankAccount;
+import org.example.accounts.classes.SavingsBankAccount;
 import org.example.accounts.services.AccountTransactions;
+import org.example.accounts.services.InterestCron;
 import org.example.cards.CardFactory;
 import org.example.cards.classes.PaymentCard;
 import org.example.cards.services.BankAccountLinking;
@@ -28,6 +30,8 @@ public class App {
     LogListing logListing;
     @Inject
     CardTransactions cardTransactions;
+    @Inject
+    InterestCron interestCron;
 
     public void run() {
         Customer customer = customerFactory.createCustomer("John", "Doe");
@@ -56,5 +60,10 @@ public class App {
         for (Log log : logs) {
             System.out.println(log.getMessage());
         }
+
+        SavingsBankAccount savingsAccount = bankAccountFactory.createSavingsAccount(customer, 0.5f);
+        accountTransactions.deposit(savingsAccount, 1000);
+
+        interestCron.run();
     }
 }

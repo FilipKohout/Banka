@@ -9,9 +9,25 @@ public final class SavingsBankAccount extends BaseBankAccount {
     @Expose
     private float interestRate;
 
+    @SerializedName("last_interest_applied")
+    @Expose
+    private float lastInterestApplied;
+
     public SavingsBankAccount(Customer customer, String uuid, String accountNumber, float interestRate) {
         super(customer, uuid, accountNumber, 0);
 
         this.interestRate = interestRate;
+    }
+
+    public float getInterestRate() {
+        return interestRate;
+    }
+
+    public float getLastInterestApplied() {
+        return lastInterestApplied;
+    }
+
+    public void setLastInterestApplied(float lastInterestApplied) {
+        this.lastInterestApplied = lastInterestApplied;
     }
 }

@@ -23,4 +23,32 @@ public class Transaction {
         this.status = status;
         this.type = type;
     }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public BaseBankAccount getAccount() {
+        return account;
+    }
+
+    public PaymentCard getCard() {
+        return card;
+    }
+
+    public TransactionStatus getStatus() {
+        return status;
+    }
+
+    public TransactionType getType() {
+        return type;
+    }
 }
