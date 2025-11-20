@@ -21,11 +21,11 @@ public class TransactionDownloadFacade {
     private TransactionListing transactionListing;
 
     private Gson gson = new Gson();
+
     public void exportAllTransactions() {
         ArrayList<Transaction> transactions = transactionListing.all();
-
-        // serialize transactions to a json file using gson
         String json = gson.toJson(transactions);
+
         try (FileWriter file = new FileWriter(Consts.FILE_PATH_TRANSACTIONS_JSON)) {
             file.write(json);
         } catch (IOException e) {
