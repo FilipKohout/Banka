@@ -14,6 +14,7 @@ import org.example.customers.Customer;
 import org.example.customers.CustomerFactory;
 import org.example.logs.classes.Log;
 import org.example.logs.services.LogListing;
+import org.example.transactions.services.TransactionExportCron;
 
 public class App {
     @Inject
@@ -32,6 +33,8 @@ public class App {
     CardTransactions cardTransactions;
     @Inject
     InterestCron interestCron;
+    @Inject
+    TransactionExportCron transactionExportCron;
 
     public void run() {
         Customer customer = customerFactory.createCustomer("John", "Doe");
@@ -64,6 +67,12 @@ public class App {
         SavingsBankAccount savingsAccount = bankAccountFactory.createSavingsAccount(customer, 0.5f);
         accountTransactions.deposit(savingsAccount, 1000);
 
-        interestCron.run();
+        new Thread(() ->
+            interestCron.run()
+        ).start();
+
+        new Thread(() ->
+            transactionExportCron.run()
+        ).start();
     }
 }

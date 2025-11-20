@@ -4,7 +4,7 @@ import org.example.utils.Consts;
 
 import java.util.Random;
 
-public final class AccountGenerator {
+public class AccountGenerator {
     private final Random random = new Random();
 
     private String generateAccountNumber() {

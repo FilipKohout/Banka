@@ -31,6 +31,8 @@ public class TransactionFactory {
             type
         );
 
+        //bankAccount.transactions.add(transaction);
+
         listing.add(transaction);
         return transaction;
     }
